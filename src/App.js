@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./tailwind.css";
-
 
 function CodeForm() {
   const [code, setCode] = useState("");
@@ -20,30 +18,37 @@ function CodeForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="code">
-          Code
-        </label>
-        <textarea
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="code"
-          value={code}
-          onChange={(event) => setCode(event.target.value)}
-        />
-      </div>
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Add Comments
-        </button>
-      </div>
-      {output && (
-        <pre className="mt-4 text-sm leading-5 text-gray-700">{output}</pre>
-      )}
-    </form>
+    <>
+      <h1 style={{ fontSize: "2em", textAlign: "center", fontWeight: "bold", marginBottom: "30px" }}>
+        AUTODOC
+      </h1>
+      <form onSubmit={handleSubmit} style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="code">
+              
+            </label>
+            <textarea
+              style={{ height: "200px", width: "600px", fontSize: "1.2em", fontFamily: "monospace" }}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="code"
+              value={code}
+              placeholder="Insert code here..."
+              onChange={(event) => setCode(event.target.value)}
+            />
+          </div>
+          <button
+            style={{ fontSize: "1.2em", backgroundColor: "#3498db", color: "white", border: "none", padding: "12px 20px", borderRadius: "4px", cursor: "pointer" }}
+            type="submit"
+          >
+            Add Comments
+          </button>
+        </div>
+        {output && (
+          <pre style={{ fontSize: "1.2em", fontFamily: "monospace", marginTop: "20px", whiteSpace: "pre-wrap" }}>{output}</pre>
+        )}
+      </form>
+    </>
   );
 }
 
