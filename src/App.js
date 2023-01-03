@@ -9,7 +9,7 @@ function CodeForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:4000/add-comments", {
+    fetch("https://g3dio2.deta.dev/add-comments", {
       method: "POST",
       body: code,
     })
